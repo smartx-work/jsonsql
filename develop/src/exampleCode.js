@@ -12,7 +12,7 @@ const normal = `
 const WRAPPER = `
 @aaaaaaaaaa{
     @bbbbbbb(100)[
-        @aaaaaaaaaa 1111111111
+        @aaaaaaaaaa 1111111111++
         @bbbbbbbbbb 2222222222
         @cccccccccc 3333333333
         @dddddddddd 4444444444
@@ -34,26 +34,27 @@ large = large.replace('######PLACEHOLDER######', '')
 const mock = `
 @json{
     @success true /// string 是否成功
-    @kkk(10)[
-        @l @success
-        @xx $param.page
+    @list(10)[
+        @id 100++
+        @ks(10)[
+            @num 100++
+        ]
     ]
-    @kk(:
-        let a = []
-        for(let i = 0; i < 10;i++){
-            a.push(i)
-        }    
-        @ a + 1
-    :)
 }
-
-let kk  =12
-
-
+`
+const easy = `
+@json{
+    @datas(12)[
+        @id 100++
+        @name #cName
+        @email #email
+    ] 
+}
 `
 
 module.exports = {
     normal,
     large,
     mock,
+    easy,
 }

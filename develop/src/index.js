@@ -4,7 +4,7 @@ const beautifyJs = require('js-beautify').js
 const exampleCode = require('./exampleCode')
 
 console.time('compile')
-const interpreter = jsonsql.compile(exampleCode.mock)
+const interpreter = jsonsql.compile(exampleCode.easy)
 console.timeEnd('compile')
 
 
