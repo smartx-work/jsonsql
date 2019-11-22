@@ -43,14 +43,23 @@ const mock = `
 }
 `
 const easy = `
+
+let xxx = [1,2]
+
+
 @json{
+    @name2 #cName
     @datas(12)[
         @id 100++
         @name #cName
         @email #email
+        @jjjj @id
+        @kkk @name
     ] 
 }
+
 `
+
 
 module.exports = {
     normal,
