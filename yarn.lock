@@ -687,10 +687,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@smartx/eslint-config-tentative@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@smartx/eslint-config-tentative/-/eslint-config-tentative-1.2.0.tgz#ff785bbb3028b73c8c90a457cacd60e611e4c68e"
-  integrity sha512-CfbioVIq+BlmBWoZtIE+NPb28tXJqWAy1hEA1TjjzmCZCUUX6xTBWKyqaFBSc+cUSwaL7y5JWY4gaYmPOSUxmw==
+"@smartx/eslint-config-tentative@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@smartx/eslint-config-tentative/-/eslint-config-tentative-1.2.1.tgz#6446976b23f298c80d600d6b639fefa0449e64df"
+  integrity sha512-7IgwQZ/dwoY6iq2+DVQX5in9IaQvmYEXM8qWz7n+cPDsMLUXT/wbUxxRIM1TuQtWiwWf5EOkuJCOe7jHKTuXEw==
   dependencies:
     eslint "^6.2.2"
     eslint-config-standard "^14.1.0"
@@ -699,6 +699,11 @@
     eslint-plugin-promise "^4.2.1"
     eslint-plugin-standard "^4.0.1"
     eslint-plugin-vue "^5.2.3"
+
+"@smartx/mock-value@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@smartx/mock-value/-/mock-value-1.0.0.tgz#72a86131b0c4f08c376176e47a44cae49f304103"
+  integrity sha512-LjyzIhn2Xoy7qWdpRUa4iGPBpwKXCnaL1KYotvYlT9b32p3BC41fCKucAXvAyxcxEC4jjZZQ2LLEVdUyTaxaJw==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"

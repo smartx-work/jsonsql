@@ -48,18 +48,19 @@ let xxx = [1,2]
 
 
 @json{
-    @name2 #cName
-    @datas(12)[
-        @id 100++
-        @name #cName
+    @name2 #name
+    @datas(2)[
+        @id 10000++
+        @name @name2
         @email #email
-        @jjjj @id
-        @kkk @name
+        @cardno #cardno
+        @time #datetime
+        @imgsrc #img('100x100')
     ] 
+    @page $param.page
+    @pageSize $param.pageSize + 1
 }
-
 `
-
 
 module.exports = {
     normal,
