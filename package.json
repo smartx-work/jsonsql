@@ -1,0 +1,35 @@
+{
+  "name": "@smartx/jsonsql",
+  "version": "0.0.2",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "author": "sschen86@163.com",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./example/main ",
+    "dev2": "rollup -c ./rollup.config.dev.js -w",
+    "build": "npm run clean && rollup -c ./rollup.config.build.js",
+    "test": "jest test",
+    "clean": "rm -rf ./dist/*"
+  },
+  "devDependencies": {
+    "js-beautify": "^1.11.0",
+    "node-lib-mods": "^0.0.3",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0"
+  },
+  "dependencies": {
+    "@smartx/mock-value": "^1.0.2"
+  },
+  "keywords": [],
+  "nodeLibConfig": {
+    "umd": false
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "repository": "https://github.com/smartx-work/jsonsql.git"
+}
