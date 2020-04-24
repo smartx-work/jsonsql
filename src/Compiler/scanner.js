@@ -1,8 +1,8 @@
-const Runtime = require('./Runtime')
-const { RootMatcher } = require('./Matchers')
-const treeBuilder = require('./treeBuilder')
+import Runtime from './Runtime'
+import { RootMatcher } from './Matchers'
+import treeBuilder from './treeBuilder'
 
-module.exports = scanner
+export default scanner
 
 function scanner (code) {
     const [ BOF, EOF, EOL ] = [ {}, {}, '\n' ]
@@ -69,8 +69,8 @@ function scanner (code) {
                 }
 
                 if (hooks) {
-                    hooks.done && hooks.done(tb, text)
                     hooks.document && hooks.document(tb, info(runtime.bIndex).document)
+                    hooks.done && hooks.done(tb, text)
                 }
 
                 if (runtime.nextSibling) {

@@ -1,5 +1,5 @@
 
-const logger = require('./logger')
+import logger from './logger'
 const matchers = {}
 let PID = 0
 class Matcher {
@@ -460,6 +460,9 @@ class StringMatcher extends Matcher {
     }
 }
 
-module.exports = {
-    RootMatcher, RuleMatcher, HookMatcher,
+
+export {
+    RootMatcher,
+    HookMatcher,
+    RuleMatcher,
 }

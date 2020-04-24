@@ -36,7 +36,7 @@ const chNow = (sr) => {
 }
 const matchedString = (runtime) => `【${runtime.sr.text(runtime.bIndex, runtime.eIndex)}】`
 
-module.exports = {
+export default {
     matcherCreated (matcher) {
         if (matcherCreated) {
             console.warn(`${indent(0)}${matcherIdentfier(matcher)}  created`, [ matcher ])

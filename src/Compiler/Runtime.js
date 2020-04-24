@@ -1,5 +1,4 @@
-
-const logger = require('./logger')
+import logger from './logger'
 
 let PID = 0
 class Runtime {
@@ -74,7 +73,7 @@ class Runtime {
 Runtime.prototype.resolve = killRecursion(Runtime.prototype.resolve)
 Runtime.prototype.reject = killRecursion(Runtime.prototype.reject)
 
-module.exports = Runtime
+export default Runtime
 
 function killRecursion (recursion) {
     let scanIsRun = false

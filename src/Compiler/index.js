@@ -1,7 +1,9 @@
 
-const { RuleMatcher, HookMatcher } = require('./Matchers')
-const scanner = require('./scanner')
-const interpreter = require('./interpreter')
+
+import { RuleMatcher, HookMatcher } from './Matchers'
+import scanner from './scanner'
+import interpreter from './interpreter'
+import documentScanner from './documentScanner'
 
 class Compiler {
     constructor ({ matchers }) {
@@ -22,10 +24,16 @@ class Compiler {
             const code = tree.code()
             const execute = interpreter.use(code)
 
-            return { tree, code, execute }
+
+            const document = documentScanner(tree)
+
+            return { tree, code, execute, document }
         } catch (error) {
             return {
                 error,
+                document () {
+                    return []
+                },
                 execute () {
                     return new Promise((resolve) => {
                         resolve({
@@ -61,4 +69,4 @@ class Compiler {
     }
 }
 
-module.exports = Compiler
+export default Compiler

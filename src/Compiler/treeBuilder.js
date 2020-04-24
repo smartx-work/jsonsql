@@ -1,25 +1,14 @@
-/*
-const {
-    NormalExportFieldNode,
-    NormalQueryFieldNode,
-    QueryMapNode,
-    QueryListNode,
-    MapNode,
-    ListNode,
-    BlockNode,
-    JsExpressionNode,
-} = require('./treeNodes')
-*/
 
-const {
+
+import {
     ObjectFieldNode,
     MapNode,
     ListNode,
     ValueNode,
     JsNode,
-} = require('./treeNodes')
+} from './treeNodes'
 
-module.exports = function treeBuilder () {
+export default function treeBuilder () {
     return new Builder(...arguments)
 }
 

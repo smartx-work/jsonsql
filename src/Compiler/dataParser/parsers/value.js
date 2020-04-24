@@ -1,5 +1,6 @@
-const parserContext = require('../context')
-const mockValue = require('@smartx/mock-value')
+
+import parserContext from '../context'
+import mockValue from '@smartx/mock-value'
 const parsers = [
     stepNumParser,
     thisFieldParser,
@@ -11,7 +12,7 @@ Object.assign(parserContext, {
     $mock: mockValue,
 })
 
-module.exports = function valueParser (code) {
+function valueParser (code) {
     for (let i = 0, lg = parsers.length; i < lg; i++) {
         const result = parsers[i](code)
 
@@ -74,3 +75,5 @@ function mockValueParser (code) {
     }
     return { newCode: `"${command}${args ? args.replace(/"/g, '\\"') : '()'}"` }
 }
+
+export default valueParser

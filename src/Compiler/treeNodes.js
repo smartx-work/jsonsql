@@ -1,6 +1,6 @@
 
-const documentParser = require('./dataParser/parsers/document')
-const valueParser = require('./dataParser/parsers/value')
+// const documentParser = require('./dataParser/parsers/document')
+import valueParser from './dataParser/parsers/value'
 
 class Node {
     constructor (runtime) {
@@ -125,6 +125,7 @@ class ObjectFieldNode extends Node {
                 })}`
     }
 
+    /*
     document () {
         const key = this.fieldKeyCode()
         const document = this.document ? `$document(${documentParser(this.document)});` : '$document(null);'
@@ -137,7 +138,7 @@ class ObjectFieldNode extends Node {
             ${document}
             ${childGetter}
         });`
-    }
+    } */
 }
 
 class ListNode extends FieldsNode {
@@ -160,7 +161,7 @@ class ListNode extends FieldsNode {
             ${getterBody}
         });`
     }
-
+    /*
     document () {
         const getterBody = this.childNode ? this.childNode.document() : `$map(function(){
            ${this.fieldsDocument()}
@@ -168,7 +169,7 @@ class ListNode extends FieldsNode {
         return `$list(function(){
             ${getterBody}
         });`
-    }
+    } */
 }
 
 class MapNode extends FieldsNode {
@@ -180,14 +181,14 @@ class MapNode extends FieldsNode {
         }
         return this.fieldsCode()
     }
-
+    /*
     document () {
         if (this.parentNode) {
             return `$map(function(){
                 ${this.fieldsDocument()}
             });`
         }
-    }
+    } */
 }
 
 class ValueNode extends FieldsNode {
@@ -205,7 +206,7 @@ class JsNode extends Node {
     }
 }
 
-module.exports = {
+export {
     ObjectFieldNode,
     MapNode,
     ListNode,

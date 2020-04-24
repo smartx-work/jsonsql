@@ -1,7 +1,7 @@
+import vm from 'vm'
+import parserContext from './dataParser/context'
 
-const vm = require('vm')
-const parserContext = require('./dataParser/context')
-module.exports = {
+export default {
     use,
 }
 
