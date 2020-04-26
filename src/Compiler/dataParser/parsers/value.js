@@ -3,6 +3,7 @@ import parserContext from '../context'
 import mockValue from '@smartx/mock-value'
 const parsers = [
     stepNumParser,
+    stepValueParser,
     thisFieldParser,
     randomValueParser,
     mockValueParser,
@@ -38,6 +39,15 @@ function stepNumParser (code) {
     }
     const [ , num, type ] = matches
     return { newCode: `${num} + this.$total * ${type === '++' ? 1 : -1}`, isBreak: true }
+}
+
+function stepValueParser (code) {
+    const matches = code.match(/([^.]+)?\.\.(?:\s+|$)/)
+    if (!matches) {
+        return
+    }
+    const [ , expression ] = matches
+    return { newCode: `${expression}[this.$index]`, isBreak: true }
 }
 
 function thisFieldParser (code) {

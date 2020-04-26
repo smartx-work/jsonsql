@@ -193,7 +193,7 @@ class MapNode extends FieldsNode {
 
 class ValueNode extends FieldsNode {
     code () {
-        return `$value(function(){ // xxx
+        return `$value(function(){
             ${this.blockExpressions ? this.blockExpressions.join('') : ''}
             return ${valueParser(this.returnExpression)}
         });`

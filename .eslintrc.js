@@ -2,5 +2,8 @@ module.exports = {
     extends: [
         '@smartx/eslint-config-tentative',
     ],
-    root: true
+    root: true,
+    globals:{
+        '$': true
+    }
 }

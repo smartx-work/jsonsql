@@ -1,6 +1,6 @@
 
 import jsonsql from '../src/index'
-
+import './dataout'
 
 docs(`
 @data /// + string,null aaaaa

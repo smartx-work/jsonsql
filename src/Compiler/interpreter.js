@@ -8,6 +8,7 @@ export default {
 // 返回执行器
 function use (code, option) {
     let script = null
+    let scriptCode = null
 
     return async function (customContext) {
         const dataExports = {}
@@ -47,7 +48,7 @@ function use (code, option) {
         runtime.curNode = new MapNode(() => { }, runtime)
 
         script = script || (() => {
-            const scriptCode = (`
+            scriptCode = (`
                 async function main(){
                     ${code}
                 }
@@ -66,7 +67,7 @@ function use (code, option) {
                 const error = {
                     line: errLine,
                     message: errMessage,
-                    codes: errCodes,
+                    codes: errCodes.map((code, i) => `${i + 1}:  ${code}`),
                     lineCode: scriptCode.split(/\n/)[errLine - 1],
                 }
 
@@ -90,7 +91,17 @@ function use (code, option) {
                     resolve(dataExports)
                 },
                 $failure (err) {
-                    dataExports.$error = err
+                    const [ , errLine, errColum ] = `${err.stack}`.split(/\n/)[1].match(/<anonymous>:(\d+):(\d+)/)
+                    const errMessage = err.message
+                    const errCodes = scriptCode.split(/\n/)
+                    const error = {
+                        line: errLine,
+                        colum: errColum,
+                        message: errMessage,
+                        codes: errCodes.map((code, i) => `${i + 1}:  ${code}`),
+                        lineCode: `${errLine}: ${scriptCode.split(/\n/)[errLine - 1]}`,
+                    }
+                    dataExports.$error = error
                     resolve(dataExports)
                 },
             }))

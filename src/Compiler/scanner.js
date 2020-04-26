@@ -28,10 +28,10 @@ function scanner (code) {
                 // eslint-disable-next-line no-throw-literal
                 throw {
                     message: '编译错误',
-                    line: codeInfo.line,
+                    line: codeInfo.line + 1,
                     column: codeInfo.column,
                     text: chAlls.slice(...codeInfo.range).join(''),
-                    codes: chAlls.join('').split(/\n/),
+                    codes: chAlls.join('').split(/\n/).map((code, i) => `${i + 1}:  ${code}`),
                 }
             }), { sr }))
         },
