@@ -87,6 +87,7 @@ function use (code, option) {
 
         return new Promise((resolve, reject) => {
             script.runInNewContext(Object.assign({ }, customContext, parserContext, systemContext, {
+                $exports: dataExports,
                 $success () {
                     resolve(dataExports)
                 },
